@@ -8,7 +8,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
-            background-image: url('limao.png'); /* Fundo com a imagem do limão */
+            background-image: url('imagens/limao.png'); /* Fundo com a imagem do limão */
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center center;
@@ -61,7 +61,7 @@
     <div id="game-container">
         <div id="title">
             <!-- Título do jogo substituído pela imagem -->
-            <img src="título.png" alt="Show do Limão">
+            <img src="imagens/título.png" alt="Show do Limão"> <!-- Aqui ajustamos o caminho da imagem do título -->
         </div>
         <div id="start-screen">
             <h2>Escolha a disciplina:</h2>
@@ -76,33 +76,4 @@
             <div class="answers">
                 <button class="btn" id="answer0" onclick="checkAnswer(0)"></button>
                 <button class="btn" id="answer1" onclick="checkAnswer(1)"></button>
-                <button class="btn" id="answer2" onclick="checkAnswer(2)"></button>
-                <button class="btn" id="answer3" onclick="checkAnswer(3)"></button>
-            </div>
-            <p id="result"></p>
-            <div class="control-buttons">
-                <button class="btn" onclick="goBackToStart()">Trocar disciplina</button>
-                <button class="btn" onclick="nextQuestion()">Próxima Pergunta</button>
-            </div>
-        </div>
-    </div>
-    <script>
-        const questions = {
-            portugues: [
-                { question: "Qual frase abaixo é afirmativa?", options: ["Eu gosto de limão.", "Eu não gosto de limão.", "Eu gosto de limão?", "Eu gosto de limão!"], answer: 0 },
-                { question: "O limão é um", options: ["substantivo próprio.", "substantivo comum.", "substantivo coletivo.", "substantivo abstrato."], answer: 1 }
-            ],
-            matematica: [
-                { question: "Na casa do Daniel o pé de limão estava com muitos frutos. O Daniel deu 8 limões para a professora e 6 limões para o Marcelo. Quantos limões Liliane e Marcelo receberam juntos?", options: ["12", "14", "16", "86"], answer: 2 },
-                { question: "Em nossa sala temos 16 alunos. Se Daniel resolvesse tirar 7 limões para cada aluno, quantos limões iria tirar?", options: ["83", "112", "143", "352"], answer: 1 }
-            ],
-            historia: [
-                { question: "Em Araruama temos muitas plantações de limão, mas o principal produto cítrico cultivado em Araruama é", options: ["a tangerina.", "o maracujá.", "a acerola.", "a laranja."], answer: 3 },
-                { question: "Araruama é ", options: ["um país.", "um estado.", "um município.", "um bairro."], answer: 2 }
-            ],
-            geografia: [
-                { question: "Se a professora está sentada na cadeira dela, de frente para a turma e um limão rola em direção à porta, qual direção está o limão em relação à professora?", options: ["Em cima.", "Embaixo.", "Direita.", "Esquerda."], answer: 2 },
-                { question: "O limão é originário de 3 países: Índia, Mianmar e China. Ele foi traduzido para o nosso país pelos europeus. Qual é o nome do nosso país?", options: ["Brasil.", "Rio de Janeiro.", "Araruama.", "XV de Novembro."], answer: 0 }
-            ],
-            ciencias: [
-                { question: "O suco de limão tem propriedades antibacterianas que ajudam a desinfetar superfícies. Assim como limpamos nossa casa, é preciso limpar o nosso corpo
+                <button class="btn"
