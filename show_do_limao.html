@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Show do Limão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            background-image: url('imagens/limão.png'); /* Fundo com a imagem do limão */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        #game-container {
+            background: white;
+            width: 60%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+        /* Substituindo o título pelo arquivo de imagem */
+        #title {
+            margin: 20px 0;
+        }
+        #title img {
+            max-width: 100%; /* Ajusta a imagem para o tamanho adequado */
+            height: auto;
+        }
+        .btn {
+            display: block;
+            width: 80%;
+            margin: 10px auto;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .control-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .control-buttons .btn {
+            width: 30%;
+        }
+        .answers button {
+            width: 80%;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <div id="title">
+            <!-- Título do jogo substituído pela imagem -->
+            <img src="imagens/titulo.png" alt="Show do Limão">
+        </div>
+        <div id="start-screen">
+            <h2>Escolha a disciplina:</h2>
+            <button class="btn" onclick="startGame('portugues')">Português</button>
+            <button class="btn" onclick="startGame('matematica')">Matemática</button>
+            <button class="btn" onclick="startGame('historia')">História</button>
+            <button class="btn" onclick="startGame('geografia')">Geografia</button>
+            <button class="btn" onclick="startGame('ciencias')">Ciências</button>
+        </div>
+        <div id="question-screen" style="display: none;">
+            <p id="question">Carregando pergunta...</p>
+            <div class="answers">
+                <button class="btn" id="answer0" onclick="checkAnswer(0)"></button>
+                <button class="btn" id="answer1" onclick="checkAnswer(1)"></button>
+                <button class="btn" id="answer2" onclick="checkAnswer(2)"></button>
+                <button class="btn" id="answer3" onclick="checkAnswer(3)"></button>
+            </div>
+            <p id="result"></p>
+            <div class="control-buttons">
+                <button class="btn" onclick="goBackToStart()">Trocar disciplina</button>
+                <button class="btn" onclick="nextQuestion()">Próxima Pergunta</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const questions = {
+            portugues: [
+                { question: "Qual frase abaixo é afirmativa?", options: ["Eu gosto de limão.", "Eu não gosto de limão.", "Eu gosto de limão?", "Eu gosto de limão!"], answer: 0 },
+                { question: "O limão é um", options: ["substantivo próprio.", "substantivo comum.", "substantivo coletivo.", "substantivo abstrato."], answer: 1 }
+            ],
+            matematica: [
+                { question: "Na casa do Daniel o pé de limão estava com muitos frutos. O Daniel deu 8 limões para a professora e 6 limões para o Marcelo. Quantos limões Liliane e Marcelo receberam juntos?", options: ["12", "14", "16", "86"], answer: 2 },
+                { question: "Em nossa sala temos 16 alunos. Se Daniel resolvesse tirar 7 limões para cada aluno, quantos limões iria tirar?", options: ["83", "112", "143", "352"], answer: 1 }
+            ],
+            historia: [
+                { question: "Em Araruama temos muitas plantações de limão, mas o principal produto cítrico cultivado em Araruama é", options: ["a tangerina.", "o maracujá.", "a acerola.", "a laranja."], answer: 3 },
+                { question: "Araruama é ", options: ["um país.", "um estado.", "um município.", "bairro."], answer: 2 }
+            ],
+            geografia: [
+                { question: "Se a professora está sentada na cadeira dela, de frente para a turma e um limão rola em direção à porta, qual direção está o limão em relação à professora?", options: ["Em cima.", "Embaixo.", "Direita.", "Esquerda."], answer: 2 },
+                { question: "O limão é originário de 3 países: Índia, Mianmar e China. Ele foi traduzido para o nosso país pelos europeus. Qual é o nome do nosso país?", options: ["Brasil.", "Rio de Janeiro.", "Araruama.", "XV de Novembro."], answer: 0 }
+            ],
+            ciencias: [
+                { question: "O suco de limão tem propriedades antibacterianas que ajudam a desinfetar superfícies. Assim como limpamos nossa casa, é preciso limpar o nosso corpo. Como chamamos o hábito de limpar o nosso corpo?", options: ["Hábito corporal.", "Hábito de higiene.", "Hábito de limpeza.", "Hábito de desinfecção."], answer: 1 },
+                { question: "O limão possui 3 partes principais: casca, polpa e semente. Quais são as 3 partes principais do corpo humano?", options: ["Cabeça, tronco e membros.", "Cérebro, tronco e membros.", "Cabeça, coração e pernas.", "Cabeça, corpo e pernas."], answer: 0 }
+            ]
+        };
+
+        let currentDiscipline = "";
+        let currentQuestionIndex = 0;
+
+        function startGame(discipline) {
+            currentDiscipline = discipline;
+            currentQuestionIndex = 0;
+            document.getElementById("start-screen").style.display = "none";
+            document.getElementById("question-screen").style.display = "block";
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            let q = questions[currentDiscipline][currentQuestionIndex];
+            document.getElementById("question").innerText = q.question;
+            document.getElementById("answer0").innerText = q.options[0];
+            document.getElementById("answer1").innerText = q.options[1];
+            document.getElementById("answer2").innerText = q.options[2];
+            document.getElementById("answer3").innerText = q.options[3];
+            document.getElementById("result").innerText = "";
+        }
+
+        function checkAnswer(choice) {
+            let q = questions[currentDiscipline][currentQuestionIndex];
+            if (choice === q.answer) {
+                document.getElementById("result").innerText = "Correto!";
+            } else {
+                document.getElementById("result").innerText = "Errado!";
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions[currentDiscipline].length) {
+                loadQuestion();
+            } else {
+                document.getElementById("question-screen").innerHTML = "<h2>Fim do jogo! Obrigado por jogar!</h2>";
+            }
+        }
+
+        function goBackToStart() {
+            document.getElementById("question-screen").style.display = "none";
+            document.getElementById("start-screen").style.display = "block";
+        }
+    </script>
+</body>
+</html>
