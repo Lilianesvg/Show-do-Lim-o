@@ -90,22 +90,37 @@
         const questions = {
             portugues: [
                 { question: "Qual frase abaixo é afirmativa?", options: ["Eu gosto de limão.", "Eu não gosto de limão.", "Eu gosto de limão?", "Eu gosto de limão!"], answer: 0 },
+                { question: "Em qual frase há uma palavra com erro de uso de letras maiúsculas ou minúsculas?", options: ["O Daniel deu limões para a professora.", "O marcelo deu bananas para a professora.", "O Lorete deu acerola para a professora.", "A Andrea deu mangas para a professora."], answer: 1 },
+                { question: "Qual a forma correta de escrever uma frase com pontuação básica?", options: ["eu tenho limões", "ele tem limões.", "Nós temos limões", "Eles têm limões."], answer: 3 },
+                { question: "Qual frase abaixo é negativa?", options: ["Eu gosto de limão.", "Eu não gosto de limão.", "Eu gosto de limão?", "Eu gosto de limão!"], answer: 1 },
                 { question: "O limão é um", options: ["substantivo próprio.", "substantivo comum.", "substantivo coletivo.", "substantivo abstrato."], answer: 1 }
             ],
             matematica: [
-                { question: "Na casa do Daniel o pé de limão estava com muitos frutos. O Daniel deu 8 limões para a professora e 6 limões para o Marcelo. Quantos limões Liliane e Marcelo receberam juntos?", options: ["12", "14", "16", "86"], answer: 1 },
-                { question: "Em nossa sala temos 16 alunos. Se Daniel resolvesse tirar 7 limões para cada aluno, quantos limões iria tirar?", options: ["83", "112", "143", "352"], answer: 1 }
+               { question: "Na casa do Daniel o pé de limão estava com muitos frutos. O Daniel deu 8 limões para a professora e 6 limões para o Marcelo. Quantos limões Liliane e Marcelo receberam juntos?", options: ["12", "14", "16", "86"], answer: 1 },
+               { question: "Se Liliane usou 3 limões pela manhã e mais 5 à tarde, quantos limões ela usou no total?", options: ["9", "6", "8", "7"], answer: 2 },
+               { question: "Se cada aluno ganhasse 3 limões para fazer suco, e se somente 6 alunos estivessem presentes nesse dia, quantos limões seriam distribuídos?", options: ["18", "12", "9", "24"], answer: 0 },
+               { question: "Na árvore da casa do Daniel havia 136 limões. O número 136 tem:", options: ["1 centena, 3 dezenas e 6 unidades", "1 dezena, 3 centenas e 6 unidades", "1 centena, 6 dezenas e 3 unidades", "1 centena, 3 unidades e 6 dezenas"], answer: 0 },
+               { question: "Em nossa sala temos 16 alunos. Se Daniel resolvesse tirar 7 limões para cada aluno, quantos limões iria tirar?", options: ["83", "112", "143", "352"], answer: 1 }
             ],
             historia: [
-                { question: "Em Araruama temos muitas plantações de limão, mas o principal produto cítrico cultivado em Araruama é", options: ["a tangerina.", "o maracujá.", "a acerola.", "a laranja."], answer: 3 },
-                { question: "Araruama é ", options: ["um país.", "um estado.", "um município.", "um bairro."], answer: 2 }
+               { question: "Em Araruama temos muitas plantações de limão, mas o principal produto cítrico cultivado em Araruama é", options: ["a tangerina.", "o maracujá.", "a acerola.", "a laranja."], answer: 3 },
+               { question: "O que acontece primeiro no tempo?", options: ["Comer o bolo de limão.", "Beber o suco do limão.", "Plantar o limão.", "Colher o limão."], answer: 2 },
+               { question: "Com o passar do tempo, o que pode mudar na produção do limão?", options: ["O gosto do limão vai desaparecer.", "As pessoas vão esquecer do limão.", "O limão vai virar uma laranja", "As ferramentas usadas na colheita."], answer: 3 },
+               { question: "Quando falamos da história do bairro XV de Novembro e de Araruama, podemos dizer que:", options: ["O  limão é muito comum na história do nosso bairro.", "O cultivo de frutas como o limão mostra o trabalho de agricultor, que é .", "Só importam os limões que estão nos grandes supermercados.", "O limão só aparece na televisão."], answer: 1 },
+               { question: "Araruama é ", options: ["um país.", "um estado.", "um município.", "um bairro."], answer: 2 }
             ],
             geografia: [
                 { question: "Se a professora está sentada na cadeira dela, de frente para a turma e um limão rola em direção à porta, qual direção está o limão em relação à professora?", options: ["Em cima.", "Embaixo.", "Direita.", "Esquerda."], answer: 2 },
+                { question: "Qual lugar é um bom ponto de referência para encontrar uma feira onde vendem limões?", options: ["Debaixo da cama.", "Ao lado do mercado.", "Dentro da escola.", "Em cima da árvore."], answer: 1 },
+                { question: "Quando falamos que o pé de limão “na frente da escola”, estamos usando o quê?", options: ["Um tipo de solo.", "Uma fruta cítrica.", "Um ponto de referência.", "Um lugar escondido."], answer: 2 },
+                { question: "Para dizer onde está o cesto de limões na sala, usamos:", options: ["O sabor do limão.", "A cor da parede.", "Palavras de direção, como “à direita” ou “em frente”.", "O preço da fruta."], answer: 2 },
                 { question: "O limão é originário de 3 países: Índia, Mianmar e China. Ele foi traduzido para o nosso país pelos europeus. Qual é o nome do nosso país?", options: ["Brasil.", "Rio de Janeiro.", "Araruama.", "XV de Novembro."], answer: 0 }
             ],
             ciencias: [
                 { question: "O suco de limão tem propriedades antibacterianas que ajudam a desinfetar superfícies. Assim como limpamos nossa casa, é preciso limpar o nosso corpo. Como chamamos o hábito de limpar o nosso corpo?", options: ["Hábito corporal.", "Hábito de higiene.", "Hábito de limpeza.", "Hábito de desinfecção."], answer: 1 },
+                { question: "O que devemos fazer antes de comer um limão ou qualquer alimento?", options: ["Brincar com ele.", "Guardar na mochila.", "Lavar as mãos.", "Dormir."], answer: 2 },
+                { question: "Quando fazemos careta ao chupar um limão, qual sistema está funcionando para movimentar o rosto?", options: ["Sistema digestivo.", "Sistema esquelético.", "Sistema respiratório.", "Sistema muscular."], answer: 3 },
+                { question: "Ao subir numa cadeira para alcançar um limão no alto, o que ajuda a manter o corpo firme e em pé?", options: ["O sangue.", "Os músculos.", "O sistema esquelético.", "Os pulmões."], answer: 1 },
                 { question: "O limão possui 3 partes principais: casca, polpa e semente. Quais são as 3 partes principais do corpo humano?", options: ["Cabeça, tronco e membros.", "Cérebro, tronco e membros.", "Cabeça, coração e pernas.", "Cabeça, corpo e pernas."], answer: 0 }
             ]
         };
